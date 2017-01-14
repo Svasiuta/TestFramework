@@ -1,2 +1,0 @@
-# TestFramework
-Selenium+Java+TestNG
