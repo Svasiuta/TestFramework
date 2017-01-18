@@ -13,7 +13,7 @@ public class MyNewTest extends BaseWebDriverTest {
         LandingPage page = new LandingPage(driver);
         page.openLandingPage(driver, "http://rozetka.com.ua/");
         ItemsCatalog catalog = page.getItemsCatalog();
-        LandingPage itemPage = catalog.goToCategory("Сантехника и ремонт");
+        LandingPage itemPage = catalog.goToCategory("Спорт и увлечения");
 
     }
 }

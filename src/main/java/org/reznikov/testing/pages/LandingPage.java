@@ -1,13 +1,9 @@
 package org.reznikov.testing.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-/**
- * Created by antonreznikov on 1/17/17.
- */
+import org.openqa.selenium.WebDriver;
+
+
 public class LandingPage {
 
 

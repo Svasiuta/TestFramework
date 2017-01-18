@@ -4,13 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
-/**
- * Created by antonreznikov on 1/17/17.
- */
+
 public class ItemsCatalog extends LandingPage {
 
     public static final String CATEGORY_FIRST = "//*[@data-title='";
     public static final String CATEGORY_SECOND = "']";
+    public static final String CHOOSE_CATEGORY_TITLE = ".pab-h1";
 
     public ItemsCatalog(WebDriver driver) {
         super(driver);
@@ -28,6 +27,8 @@ public class ItemsCatalog extends LandingPage {
 
         Actions testAction = selectCategory(category);
         testAction.click().build().perform();
+        String result = driver.findElement(By.cssSelector(CHOOSE_CATEGORY_TITLE)).getText();
+        assert category.equals(result);
         return new LandingPage(driver);
     }
 }
