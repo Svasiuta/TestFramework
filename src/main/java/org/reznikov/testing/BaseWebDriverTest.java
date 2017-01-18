@@ -19,12 +19,12 @@ public class BaseWebDriverTest {
     private long startTime;
 
     @BeforeMethod
-    public void initDriver(){
+    public void initDriver() {
         String path = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/chromedriver");
         //Navigate to rozetka
         driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1920,1080));
+        driver.manage().window().setSize(new Dimension(1920, 1080));
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
         startTime = Reporter.getCurrentTestResult().getStartMillis();
@@ -32,11 +32,9 @@ public class BaseWebDriverTest {
     }
 
     @AfterMethod
-    public void destroyDriver(){
-        if(driver!=null) {
+    public void destroyDriver() {
+        if (driver != null) {
             driver.quit();
         }
-
-        //Reporter.log("Elapsed time: "+(Reporter.getCurrentTestResult().getEndMillis()-startTime/1000),true);
     }
 }

@@ -11,22 +11,18 @@ public class ItemsCatalog extends LandingPage {
 
     public ItemsCatalog(WebDriver driver) {
         super(driver);
-        /*PageFactory.initElements(driver,this);*/
+
     }
-/*     Так делать не надо
-    @FindBy(xpath = "//ok")
-    WebElement ok;*/
 
-    public ItemsCatalog selectCategory(String category){
+    public ItemsCatalog selectCategory(String category) {
         Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.id("fat_menu_btn"))).build().perform();
-
-
+        actions.moveToElement(driver.findElement(By.xpath("//*[@data-title='" + category + "']"))).build().perform();
         return this;
     }
 
-    public LandingPage goToCategory(String category){
+    public LandingPage goToCategory(String category) {
         selectCategory(category);
+        driver.findElement(By.xpath("//*[@data-title='" + category + "']")).click();
         return new LandingPage(driver);
     }
 }
