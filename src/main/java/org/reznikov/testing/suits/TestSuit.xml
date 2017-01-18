@@ -1,42 +1,11 @@
 <suite name="Suite1" verbose="1"  parallel="tests" thread-count="5" >
-    <test name="test1" enabled="true" priority="2">
+    <test name="test1" enabled="true">
         <classes>
             <class name="org.reznikov.testing.MyNewTest" />
             <methods>
-                <include name="testMe1"></include>
+                <include name="testSite"></include>
             </methods>
         </classes>
     </test>
-    <test name="test2" enabled="true" priority="1">
-        <classes>
-            <class name="org.reznikov.testing.MyNewTest" />
-            <methods>
-                <include name="testMe2"></include>
-            </methods>
-        </classes>
-    </test>
-    <test name="test3" enabled="true" priority="1">
-        <classes>
-            <class name="org.reznikov.testing.MyNewTest" />
-            <methods>
-                <include name="testMe3"></include>
-            </methods>
-        </classes>
-    </test>
-    <test name="test4" enabled="true" priority="1">
-        <classes>
-            <class name="org.reznikov.testing.MyNewTest" />
-            <methods>
-                <include name="testMe4"></include>
-            </methods>
-        </classes>
-    </test>
-    <test name="test5" enabled="true" priority="1">
-        <classes>
-            <class name="org.reznikov.testing.MyNewTest" />
-            <methods>
-                <include name="testMe5"></include>
-            </methods>
-        </classes>
-    </test>
+
 </suite>
