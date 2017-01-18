@@ -12,7 +12,6 @@ public class LandingPage {
 
 
     public WebDriver driver;
-    WebDriverWait wait;
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
