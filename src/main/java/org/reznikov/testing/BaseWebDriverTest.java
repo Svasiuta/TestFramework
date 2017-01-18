@@ -25,7 +25,7 @@ public class BaseWebDriverTest {
         //Navigate to rozetka
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1920,1080));
-        driver.get("http://rozetka.com.ua/");
+
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
         startTime = Reporter.getCurrentTestResult().getStartMillis();
         wait = new WebDriverWait(driver, 15);
