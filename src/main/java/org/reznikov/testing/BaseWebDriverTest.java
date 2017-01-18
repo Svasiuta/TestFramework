@@ -10,31 +10,22 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by antonreznikov on 1/14/17.
- */
+
 public class BaseWebDriverTest {
     public WebDriver driver;
-    public WebDriverWait wait;
-    private long startTime;
 
     @BeforeMethod
     public void initDriver() {
         String path = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/chromedriver");
-        //Navigate to rozetka
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1920, 1080));
-
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
-        startTime = Reporter.getCurrentTestResult().getStartMillis();
-        wait = new WebDriverWait(driver, 15);
     }
 
-    @AfterMethod
-    public void destroyDriver() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @AfterMethod
+//    public void destroyDriver() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 }

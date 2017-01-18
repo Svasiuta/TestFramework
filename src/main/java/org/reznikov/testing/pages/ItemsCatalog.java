@@ -9,20 +9,25 @@ import org.openqa.selenium.interactions.Actions;
  */
 public class ItemsCatalog extends LandingPage {
 
+    public static final String CATEGORY_FIRST = "//*[@data-title='";
+    public static final String CATEGORY_SECOND = "']";
+
     public ItemsCatalog(WebDriver driver) {
         super(driver);
 
     }
 
-    public ItemsCatalog selectCategory(String category) {
+    public Actions selectCategory(String category) {
+
         Actions actions = new Actions(driver);
-        actions.moveToElement(driver.findElement(By.xpath("//*[@data-title='" + category + "']"))).build().perform();
-        return this;
+        actions.moveToElement(driver.findElement(By.xpath(CATEGORY_FIRST + category + CATEGORY_SECOND))).click().build().perform();
+        return actions;
     }
 
     public LandingPage goToCategory(String category) {
-        selectCategory(category);
-        driver.findElement(By.xpath("//*[@data-title='" + category + "']")).click();
+
+        Actions testAction = selectCategory(category);
+        testAction.click().build().perform();
         return new LandingPage(driver);
     }
 }
