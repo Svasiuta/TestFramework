@@ -22,7 +22,7 @@ public class BaseWebDriverTest {
     public void initDriver(){
         String path = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", path + "/src/main/resources/chromedriver");
-        //Navigate to rozetka
+
         driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1920,1080));
 
@@ -31,12 +31,12 @@ public class BaseWebDriverTest {
         wait = new WebDriverWait(driver, 15);
     }
 
-    @AfterMethod
-    public void destroyDriver(){
-        if(driver!=null) {
-            driver.quit();
-        }
+//    @AfterMethod
+//    public void destroyDriver(){
+//        if(driver!=null) {
+//            driver.quit();
+//        }
 
         //Reporter.log("Elapsed time: "+(Reporter.getCurrentTestResult().getEndMillis()-startTime/1000),true);
-    }
+//    }
 }
