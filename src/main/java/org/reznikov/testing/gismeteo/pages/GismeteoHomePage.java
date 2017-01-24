@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class GismeteoHomePage {
 
-    private static final String SEARCH = "";
-    private static final String AUTOCOMPLETE = "";
-    private static final String ENV = "https://www.gismeteo.ua/";
+    private static  String SEARCH = "";
+    private static  String AUTOCOMPLETE = "";
+    private static  String ENV = "https://www.gismeteo.ua/";
     protected WebDriver driver;
     protected WebDriverWait wait;
     private long DEFAULT_TIMEOUT = 5;
@@ -20,7 +20,11 @@ public class GismeteoHomePage {
     public GismeteoHomePage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver,DEFAULT_TIMEOUT);
+    }
+
+    public GismeteoHomePage navigate(){
         driver.get(ENV);
+        return this;
     }
 
     public void searchForCity(String city){

@@ -13,7 +13,7 @@ import java.time.temporal.ChronoUnit;
  * Created by antonreznikov on 1/21/17.
  */
 public class TwoWeeksView extends CityPage{
-    private static final String FORECAST_ON_DAY = "//*[contains(@class,'rframe wblock wdata')][.//*[@class='s_date'][text()='{0}']]";
+    private static String FORECAST_ON_DAY = "//*[contains(@class,'rframe wblock wdata')][.//*[@class='s_date'][text()='{0}']]";
 
     public TwoWeeksView(WebDriver driver) {
         super(driver);
