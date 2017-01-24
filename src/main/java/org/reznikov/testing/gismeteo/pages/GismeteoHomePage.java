@@ -27,9 +27,10 @@ public class GismeteoHomePage {
         return this;
     }
 
-    public void searchForCity(String city){
+    public CityPage searchForCity(String city){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SEARCH))).sendKeys(city);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(AUTOCOMPLETE))).click();
+    return new CityPage(driver);
     }
 
 }

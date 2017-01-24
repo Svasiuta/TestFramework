@@ -7,16 +7,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
+import org.testng.asserts.SoftAssert;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * Created by antonreznikov on 1/14/17.
  */
+@Listeners(TestListener.class)
 public class BaseWebDriverTest {
     public WebDriver driver;
     public WebDriverWait wait;
+    public SoftAssert softAssert;
     private long startTime;
+
+    public WebDriver getDriver(){
+        return driver;
+    }
 
     @BeforeMethod
     public void initDriver(){
@@ -29,14 +37,15 @@ public class BaseWebDriverTest {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.MINUTES);
         startTime = Reporter.getCurrentTestResult().getStartMillis();
         wait = new WebDriverWait(driver, 15);
+        softAssert = new SoftAssert();
     }
 
-//    @AfterMethod
-//    public void destroyDriver(){
-//        if(driver!=null) {
-//            driver.quit();
-//        }
+    @AfterMethod
+    public void destroyDriver(){
+        if(driver!=null) {
+            driver.quit();
+        }
 
-        //Reporter.log("Elapsed time: "+(Reporter.getCurrentTestResult().getEndMillis()-startTime/1000),true);
-//    }
+        Reporter.log("Elapsed time: "+(Reporter.getCurrentTestResult().getEndMillis()-startTime/1000),true);
+    }
 }

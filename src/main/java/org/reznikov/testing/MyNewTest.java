@@ -1,10 +1,11 @@
 package org.reznikov.testing;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.reznikov.testing.pages.ItemsCatalog;
-import org.reznikov.testing.pages.LandingPage;
+import org.reznikov.testing.gismeteo.pages.GismeteoHomePage;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.time.LocalDate;
 
 /**
  * Created by antonreznikov on 1/10/17.
@@ -12,12 +13,20 @@ import org.testng.annotations.Test;
 public class MyNewTest extends BaseWebDriverTest{
 
     @Test
-    public void testSite(){
+    public void testSite() throws IOException, InterruptedException {
+        /*driver.get("https://google.com.ua");
+        softAssert.assertTrue(true,"assert 1");
+        softAssert.assertTrue(false,"assert 3");
+        softAssert.assertTrue(true,"assert 4");
+        softAssert.assertTrue(false,"Assert 5");
+        Thread.sleep(2000);
+        softAssert.assertAll();*/
 
-        LandingPage page = new LandingPage(driver);
-        ItemsCatalog catalog = page.getItemsCatalog();
-        LandingPage itemPage = catalog.goToCategory("Сантехника и ремонт");
-
+        Reporter.log(new GismeteoHomePage(driver)
+                .navigate()
+                .searchForCity("Харьков")
+                .swithchToMonthView()
+                .getForecastOnDateAsString(LocalDate.now().plusDays(3)),true);
 
     }
 
